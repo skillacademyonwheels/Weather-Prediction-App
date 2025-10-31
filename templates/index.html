@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #myh1{
+            font-size: 8vw;
+            border: 2px solid red;
+            box-shadow: 2px 3px 5px blueviolet;
+            margin: auto;
+            text-align: center;
+        }
+        form{
+            padding: 50px;
+            margin: auto;
+
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+</head>
+<body>
+    <h1 id="myh1">My Weather App</h1>
+    <form action="/getweather" method="post">
+        <fieldset><label for="location">
+            <legend>Weather App</legend><br>
+          <label for="city">Location</label>
+            <input type="text" name="city">
+            <br><br>
+            <button type="submit" value="submit">Submit </button>
+        </fieldset>
+        
+    </form>
+    {% if data and data.country_code %}
+
+        <h2> Weather Location- {{data.country_code}} - {{data.city}}</h2>
+        <p> Percipitation : {{data.rain}} </p>
+        <p> Temperature : {{data.temp}} </p>
+        <p> Humidity : {{data.humidity}} </p>
+        <p> Wind : {{data.wind}} </p>
+
+        
+    {% else %}
+        <p> {{error}} </p>
+        
+    {% endif %}
+
+
+</body>
+</html>
