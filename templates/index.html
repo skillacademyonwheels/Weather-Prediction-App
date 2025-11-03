@@ -2,17 +2,36 @@
 <html lang="en">
 <head>
     <style>
+    body{
+       background-color: aqua;
+
+    }
         #myh1{
-            font-size: 8vw;
+            background-color: azure;
+            font-size: 4vw;
             border: 2px solid red;
             box-shadow: 2px 3px 5px blueviolet;
             margin: auto;
             text-align: center;
+            margin-bottom: 5vh;
+            width: 50%;
         }
         form{
-            padding: 50px;
+            background-color: burlywood;
+            padding: 10px;
             margin: auto;
+            width: 50%;
+            margin-bottom: 5vh;
 
+        }
+        #mydiv{
+            text-align: left;
+            padding: 10px;
+            margin: auto;
+            width: 30%;
+            background-color: blue;
+            color: white;
+            
         }
     </style>
     <meta charset="UTF-8">
@@ -24,13 +43,14 @@
     <form action="/getweather" method="post">
         <fieldset><label for="location">
             <legend>Weather App</legend><br>
-          <label for="city">Location</label>
+          <label for="city"><b>Location</b></label>
             <input type="text" name="city">
             <br><br>
             <button type="submit" value="submit">Submit </button>
         </fieldset>
         
     </form>
+    <div id="mydiv">
     {% if data and data.country_code %}
 
         <h2> Weather Location- {{data.country_code}} - {{data.city}}</h2>
@@ -44,7 +64,7 @@
         <p> {{error}} </p>
         
     {% endif %}
-
+    </div>
 
 </body>
 </html>
